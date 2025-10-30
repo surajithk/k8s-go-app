@@ -7,8 +7,8 @@ metadata:
 spec:
   type: LoadBalancer  # Use NodePort for local clusters like minikube
   ports:
-  - port: 80
-    targetPort: 8080
+  - port: 8080
+    targetPort: 80
     protocol: TCP
     name: http
   selector:

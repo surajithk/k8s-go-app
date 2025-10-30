@@ -9,8 +9,8 @@ WORKDIR /app
 # For a simple single-file app, we'll copy the source directly
 COPY cool_app.go .
 
-# Build the Go application
-RUN go build -o cool_app cool_app.go
+# Build the Go application for linux/amd64
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o cool_app cool_app.go
 
 # Stage 2: Create the final lightweight image
 FROM alpine:latest
