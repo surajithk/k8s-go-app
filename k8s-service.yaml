@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-go-app-service
+  labels:
+    app: k8s-go-app
+spec:
+  type: LoadBalancer  # Use NodePort for local clusters like minikube
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: k8s-go-app
